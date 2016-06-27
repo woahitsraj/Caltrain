@@ -9,6 +9,7 @@ const StaticDispatcher = require('../commons/static/index');
 module.exports = class Routes {
    static init(app, router) {
      TodoRoutes.init(router);
+     StopRoutes.init(router);
      
      router
        .route('*')

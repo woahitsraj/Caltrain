@@ -7,9 +7,9 @@
       function($routeProvider) {
         $routeProvider
           .when('/', {
-            templateUrl: 'todo/templates/todo.html',
-            controller: 'TodoController',
-            controllerAs: 'todoCtrl'
+            templateUrl: 'transit/templates/main.html',
+            controller: 'main',
+            controllerAs: 'mainCtrl'
           })
           .otherwise({
             redirectTo: '/'
@@ -17,3 +17,4 @@
       }
     ]);
 }(window.angular));
+  

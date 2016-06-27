@@ -1,30 +1,45 @@
-"use strict";
+'use strict';
 
-const stop = require('../dao/stop-dao');
+var gtfs = require('gtfs');
 
 module.exports = class stopController {
   static getAll(req, res) {
-    stopDAO
-      .getAll()
-      .then(stop => res.status(200).json(stops))
-      .catch(error => res.status(400).json(error));
+    var agencyKey;
+    gtfs.agencies(function(err, agencies) {
+      if (err) {
+        console.log(err);
+      } else {
+        agencyKey = agencies[0].agency_key;
+        gtfs.getStops(agencyKey, function(err, stops) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(stops);
+          }
+        });
+
+      }
+    });
   }
 
-  static createNew(req, res) {
-    let _stop = req.body;
-
-    stopDAO
-      .createNew(_stop)
-      .then(stop => res.status(201).json(stop))
-      .catch(error => res.status(400).json(error));
-  }
-
-  static removeById(req, res) {
+  static getById(req, res) {
     let _id = req.params.id;
+    var agencyKey;
+    gtfs.agencies(function(err, agencies) {
+      if (err) {
+        console.log(err);
+      } else {
+        agencyKey = agencies[0].agency_key;
+        gtfs.getStops(agencyKey, _id, function(err, stops) {
+          if (err) {
+            console.log(err);
+          } else {
+            res.send(stops);
+          }
+        });
 
-    stopDAO
-      .removeById(_id)
-      .then(() => res.status(200).end())
-      .catch(error => res.status(400).json(error));
+      }
+    });
+
   }
-}
+};

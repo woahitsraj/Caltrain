@@ -6,11 +6,10 @@ module.exports = class stopRoutes {
   static init(router) {
     router
       .route('/api/stop')
-      .get(stopController.getAll)
-      .post(stopController.createNew);
+      .get(stopController.getAll);
 
     router
       .route('/api/stop/:id')
-      .delete(stopController.removeById);
+      .get(stopController.getById);
   }
-}
+};

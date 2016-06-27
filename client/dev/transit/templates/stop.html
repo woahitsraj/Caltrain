@@ -1,0 +1,9 @@
+<div class="row">
+    <label>Enter a Starting Station:
+        <select ng-model="template" name="startingStation" ng-model="stopController.startingStation" ng-options="stop.stop_name for stop in "></select>
+    </label>
+</div>
+<div class="row">
+    <label>Enter an Ending Station:
+        <select ng-model="template" name="endingStation" ng-model="stopController.endingStation" ng-options="stop.stop_name for stop in stops"></select>
+</div>
