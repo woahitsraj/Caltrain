@@ -1,3 +1,27 @@
-# public-transport
-[![Build Status](https://secure.travis-ci.org/woahitsraj/public-transport.png?branch=master)](https://travis-ci.org/woahitsraj/public-transport)
-[![Coverage Status](https://coveralls.io/repos/woahitsraj/public-transport/badge.svg?branch=master)](https://coveralls.io/r/woahitsraj/public-transport/?branch=master)
+# Caltrain
+Public transportation, Second Project for the Udacity Senior Web Developer Nanodegree
+
+##Running
+- Installing dependencies:
+```{r, engine='bash', count_lines}
+$ npm install
+```
+
+- Download packages:  
+```{r, engine='bash', count_lines}
+$ bower install
+```
+
+- Running:  
+```{r, engine='bash', count_lines}
+$ npm run dev
+```
+
+
+##Built using:
+Javascript
+HTML5
+CSS3  
+Gulp
+BootStrap 3 
+AngularJS
