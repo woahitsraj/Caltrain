@@ -1,21 +1,15 @@
-;(function(ng) {
-  'use strict';
+(function(ng) {
+	'use strict';
 
-  ng.module('public-transport')
-    .controller('stopController', [
-      function() {
-        var self = this;
-  		self.startingStation = '';
-  		self.endingStation = '';
-  		self.stops = [];
-
-        function _getAllStops() {
-        	//TODO: populate stops from database
-        }
-
-        _getAllStops();
-
-        return self;
-      }
-    ]);
+	ng.module('public-transport')
+		.controller('stopController', ['stopService', '$scope',
+			function(stopService,$scope) {
+				$scope.startingStation = '';
+				$scope.endingStation = '';
+				$scope.stops = [];
+				stopService.getAll().success(function(data){
+					$scope.stops = data;
+				});
+			}
+		]);
 }(window.angular));
