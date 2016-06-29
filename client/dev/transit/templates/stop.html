@@ -1,16 +1,11 @@
 <div class="row">
     <label>Enter a Starting Station:
-        <select name="startingStation" ng-model="startingStation" ng-options="s.stop_name for s in stops">
+        <select name="startingStation" ng-model="$parent.startingStation" ng-options="s.stop_name for s in stops">
         </select>
     </label>
 </div>
 <div class="row">
     <label>Enter an Ending Station: 
-        <select name="endingStation" ng-model="endingStation" ng-options="s.stop_name for s in stops">
+        <select name="endingStation" ng-model="$parent.endingStation" ng-options="s.stop_name for s in stops">
         </select>
-</div>
-<div class="row">
-	<ul>
-		<li ng-repeat="s in stopController.stops"></li>
-	</ul>
 </div>

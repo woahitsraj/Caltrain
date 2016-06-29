@@ -1,15 +1,15 @@
 "use strict";
 
-const TodoRoutes = require('../api/todo/routes/todo-routes');
 const StopRoutes = require('../api/transit/routes/stop-route');
+const RoutesByStopRouets = require('../api/transit/routes/routesByStop-route.js');
 
 const StaticDispatcher = require('../commons/static/index');
 
 
 module.exports = class Routes {
    static init(app, router) {
-     TodoRoutes.init(router);
      StopRoutes.init(router);
+     RoutesByStopRouets.init(router);
      
      router
        .route('*')
