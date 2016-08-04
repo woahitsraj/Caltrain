@@ -12,11 +12,11 @@ module.exports = class routesByStopController {
         console.log(err);
       } else {
         agencyKey = agencies[0].agency_key;
-        gtfs.getRoutesByStop(agencyKey, _id, function(err, stops) {
+        gtfs.getRoutesByStop(agencyKey, _id, function(err, routes) {
           if (err) {
             console.log(err);
           } else {
-            res.send(stops);
+            res.send(routes);
           }
         });
 
