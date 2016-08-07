@@ -8,9 +8,16 @@
       	$scope.endingStation = '';
 
         var self = this;
-        self.getRouteForStation = function(){
-          $http.get('api/routesbystop/' + $scope.startingStation.id);
+        self.getStopTimesForStartingStation = function(){
+          $scope.stopTimesForStartingStationNB = $http.get('api/stoptimes/' + $scope.startingStation.id);
+          $scope.stopTimesForStartingStationSB = $http.get('api/stoptimes/' + ($scope.startingStation.id + 1));
         };
+        self.getStopTimesForEndingStation = function(){
+          $scope.stopTimesForEndingStationNB = $http.get('api/stoptimes/' + $scope.endingStation.id);
+          $scope.stopTimesForEndingStationSB = $http.get('api/stoptimes/' + ($scope.endingStation.id + 1));
+        };
+
+
 
 
         return self;

@@ -2,7 +2,7 @@
 	'use strict';
 
 	ng.module('public-transport')
-		.controller('stopController', ['stopService', '$scope',
+		.controller('stopController', ['stopService', '$scope', '$http',
 			function(stopService, $scope) {
 				$scope.stops = [];
 				stopService.getAll().success(function(data) {

@@ -1,11 +1,68 @@
 <div class="row">
     <label>Enter a Starting Station:
-        <select name="startingStation" ng-model="$parent.startingStation" ng-options="s.stop_name for s in stops">
+        <select name="startingStation" ng-model="$parent.startingStation" ng-options="s.stop_name for s in stops" ng-change="$parent.getStopTimesForStartingStation()">
         </select>
     </label>
 </div>
 <div class="row">
-    <label>Enter an Ending Station: 
-        <select name="endingStation" ng-model="$parent.endingStation" ng-options="s.stop_name for s in stops">
+    <label>Enter an Ending Station:
+        <select name="endingStation" ng-model="$parent.endingStation" ng-options="s.stop_name for s in stops" ng-change="$parent.getStopTimesForEndingStation()">
         </select>
+</div>
+<div class="row">
+    <div class="col-md-6">
+        <h2>Departure Times for {{$parent.startingStation.stop_name}}</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>NorthBound</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="time in stopTimesForStartingStationNB">
+                    <td>{{time}}</td>
+                </tr>
+            </tbody>
+        </table>
+                <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Southbound</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="time in stopTimesForStartingStationSB">
+                    <td>{{time}}</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div class="col-md-6">
+        <h2>Arrival Times for {{$parent.endingStation.stop_name}}</h2>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>NorthBound</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="time in stopTimesForEndingStationNB">
+                    <td>{{time}}</td>
+                </tr>
+            </tbody>
+        </table>
+                <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Southbound</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="time in stopTimesForEndingStationSB">
+                    <td>{{time}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
 </div>
