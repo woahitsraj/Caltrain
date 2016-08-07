@@ -2,5 +2,67 @@
     <div class="jumbotron">
         <h1>Caltrain app</h1>
     </div>
-    <div ng-include="'transit/templates/stop.html'" ng-controller="stopController"></div>
+    <div class="row">
+        <label>Enter a Starting Station:
+            <select name="startingStation" ng-model="startingStation" ng-options="s.stop_name for s in stops" ng-change="getStopTimesForStartingStation()">
+            </select>
+        </label>
+    </div>
+    <div class="row">
+        <label>Enter an Ending Station:
+            <select name="endingStation" ng-model="endingStation" ng-options="s.stop_name for s in stops" ng-change="getStopTimesForEndingStation()">
+            </select>
+    </div>
+    <div class="row">
+        <div class="col-md-6">
+            <h2>Departure Times for {{startingStation.stop_name}}</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>NorthBound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="times in stopTimesForStartingStationNB">
+                        <td>{{times}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Southbound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="times in stopTimesForStartingStationSB">
+                        <td>{{times}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="col-md-6">
+            <h2>Arrival Times for {{endingStation.stop_name}}</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>NorthBound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="times in stopTimesForEndingStationNB">
+                        <td>{{times}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <tr>
+                        <th>Southbound</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="times in stopTimesForEndingStationSB">
+                        <td>{{times}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
