@@ -9,11 +9,19 @@ gulp.task('generate-service-worker', function(callback) {
 		staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
 		stripPrefix: rootDir,
 		runtimeCaching: [{
-			urlPattern: /api/,
-			handler: 'cacheFirst',
+			urlPattern: /^((?:.*))\/api\/stop(?:\/(?=$))?$/i,
+			handler: 'networkFirst',
 			options: {
 				cache: {
 					name: 'stop-cache'
+				}
+			}
+		}, {
+			urlPattern: /^((?:.*))\/api\/stoptime\/((?:[^\/]+?))(?:\/(?=$))?$/i,
+			handler: 'networkFirst',
+			options: {
+				cache: {
+					name: 'stoptime-cache'
 				}
 			}
 		}]
