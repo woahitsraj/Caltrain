@@ -10,7 +10,7 @@
           $.each(data, function(i, el) {
             var flag = true;
             $.each($scope.stops, function(index, val) {
-              if (val.stop_name == el.stop_name) {
+              if (val.parent_station === el.parent_station || val.stop_name === el.stop_name) {
                 flag = false;
               }
             });
@@ -30,17 +30,32 @@
         $scope.getStopTimesForStartingStation = function() {
           $http.get('api/stoptime/' + parseInt($scope.startingStation.stop_id)).success(function(data) {
             $scope.stopTimesForStartingStationNB = data;
+          }).catch(function(error) {
+            console.log(error);
+            $scope.stopTimesForStartingStationNB = [];
           });
           $http.get('api/stoptime/' + (parseInt($scope.startingStation.stop_id) + 1)).success(function(data) {
             $scope.stopTimesForStartingStationSB = data;
+          }).catch(function(error) {
+            console.log(error);
+            $scope.stopTimesForStartingStationSB = [];
+
           });
         };
         $scope.getStopTimesForEndingStation = function() {
           $http.get('api/stoptime/' + parseInt($scope.endingStation.stop_id)).success(function(data) {
             $scope.stopTimesForEndingStationNB = data;
+          }).catch(function(error) {
+            console.log(error);
+            $scope.stopTimesForEndingStationNB = [];
+
           });
           $http.get('api/stoptime/' + (parseInt($scope.endingStation.stop_id) + 1)).success(function(data) {
             $scope.stopTimesForEndingStationSB = data;
+          }).catch(function(error) {
+            console.log(error);
+            $scope.stopTimesForEndingStationSB = [];
+
           });
         };
 
