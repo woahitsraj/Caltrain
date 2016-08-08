@@ -6,6 +6,8 @@
     .controller('mainController', ['$scope', '$http', 'stopService',
       function($scope, $http, stopService) {
         $scope.stops = [];
+        $scope.startingStationSelected = false;
+        $scope.endingStationSelected = false;
         stopService.getAll().success(function(data) {
           $.each(data, function(i, el) {
             var flag = true;
@@ -28,6 +30,7 @@
 
         };
         $scope.getStopTimesForStartingStation = function() {
+          $scope.startingStationSelected = true;
           $http.get('api/stoptime/' + parseInt($scope.startingStation.stop_id)).success(function(data) {
             $scope.stopTimesForStartingStationNB = data;
           }).catch(function(error) {
@@ -43,6 +46,7 @@
           });
         };
         $scope.getStopTimesForEndingStation = function() {
+          $scope.endingStationSelected = true;
           $http.get('api/stoptime/' + parseInt($scope.endingStation.stop_id)).success(function(data) {
             $scope.stopTimesForEndingStationNB = data;
           }).catch(function(error) {

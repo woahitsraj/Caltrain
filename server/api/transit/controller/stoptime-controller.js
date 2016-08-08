@@ -19,14 +19,13 @@ module.exports = class stoptimeController {
             var routeId = routes[0].route_id;
             gtfs.getStoptimesByStop(agencyKey, routeId, _id, 0, function(err, stoptimes) {
               if (err) {
-                return;
-              } else {
-                res.send(stoptimes);
-              }
-            });
-            gtfs.getStoptimesByStop(agencyKey, routeId, _id, 1, function(err, stoptimes) {
-              if (err) {
-                return;
+                gtfs.getStoptimesByStop(agencyKey, routeId, _id, 1, function(err, stoptimes) {
+                  if (err) {
+                    res.send(err);
+                  } else {
+                    res.send(stoptimes);
+                  }
+                });
               } else {
                 res.send(stoptimes);
               }
