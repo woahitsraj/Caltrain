@@ -1,5 +1,5 @@
 # Caltrain
-Public transportation, Second Project for the Udacity Senior Web Developer Nanodegree
+Public transportation, Second Project for the Udacity Senior Web Developer Nanodegree. Uses service worker through SW-Precache to provide an offline first experience once the timetables and stops have been cached. 
 
 ## Setup
 - Installing dependencies:
