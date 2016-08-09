@@ -32,3 +32,4 @@ BootStrap 3
 
 AngularJS
 
+Sw-precache
