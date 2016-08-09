@@ -1,7 +1,7 @@
 # Caltrain
 Public transportation, Second Project for the Udacity Senior Web Developer Nanodegree
 
-##Running
+## Setup
 - Installing dependencies:
 ```{r, engine='bash', count_lines}
 $ npm install
@@ -12,24 +12,31 @@ $ npm install
 $ bower install
 ```
 
-- Running:  
+
+## Loading Data
+
+### Make sure mongo is running
+
+```{r, engine='bash', count_lines}
+$ mongod
+```
+
+### Run the download script
+```{r, engine='bash', count_lines}
+$ gulp init-gtfs
+```
+
+##Running
 ```{r, engine='bash', count_lines}
 $ npm run dev
 ```
 
 
 ##Built using:
-
-Javascript
-
-HTML5
-
-CSS3
-
-Gulp
-
-BootStrap 3 
-
-AngularJS
-
-Sw-precache
+* Javascript
+* HTML5
+* CSS3
+* Gulp
+* BootStrap 3 
+* AngularJS
+* SW-precache
