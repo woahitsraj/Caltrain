@@ -7,12 +7,6 @@ Public transportation, Second Project for the Udacity Senior Web Developer Nanod
 $ npm install
 ```
 
-- Download packages:  
-```{r, engine='bash', count_lines}
-$ bower install
-```
-
-
 ## Loading Data
 
 ### Make sure mongo is running
@@ -30,7 +24,7 @@ $ gulp init-gtfs
 ```{r, engine='bash', count_lines}
 $ npm run dev
 ```
-
+Client files will be served from ./dist
 
 ##Built using:
 * Javascript

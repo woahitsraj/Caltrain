@@ -6,37 +6,29 @@
     
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
     <meta name="description" content="Offline First Caltrain App">
-    <meta name="keywords" content="Todo,myAwesomeApp,App">
     <meta name="author" content="Rajan Singh">
 
     
 
     <title>Caltrain App</title>
-    <link rel="shortcut icon" type="image/ico" href="./favicon.png"/>
 
-    <link type="text/css" rel="stylesheet" href="./bower_components/bootstrap/dist/css/bootstrap.min.css"/>
-    <link type="text/css" rel="stylesheet" href="./bower_components/fontawesome/css/font-awesome.min.css"/>
+    <link type="text/css" rel="stylesheet" href="./css/bootstrap.css"/>
 
   </head>
 
   <body>
     <div ng-view></div>
     
-    <script type="text/javascript" src="./service-worker-registration.js"></script>
-    <script type="text/javascript" src="./bower_components/jquery/dist/jquery.js"></script>
-    <script type="text/javascript" src="./bower_components/bootstrap/dist/js/bootstrap.js"></script>
-    <script type="text/javascript" src="./bower_components/angular/angular.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-messages/angular-messages.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-route/angular-route.js"></script>
-    <script type="text/javascript" src="./bower_components/angular-resource/angular-resource.js"></script>
+    <script type="text/javascript" src="./js/jquery.js"></script>
+    <script type="text/javascript" src="./js/bootstrap.js"></script>
+    <script type="text/javascript" src="./js/angular.js"></script>
+    <script type="text/javascript" src="./js/angular-route.js"></script>
 
-    <script type="text/javascript" src="./app.js"></script>
-    <script type="text/javascript" src="./app.config.js"></script>
-    <script type="text/javascript" src="./app.route.js"></script>
+    <script type="text/javascript" src="./js/app.js"></script>
+    <script type="text/javascript" src="./js/stopService.js"></script>
+    <script type="text/javascript" src="./js/mainController.js"></script>
+    <script type="text/javascript" src="./js/stopController.js"></script>
 
-    <script type="text/javascript" src="./transit/factory/stopService.js"></script>
-    <script type="text/javascript" src="./transit/controllers/mainController.js"></script>
-    <script type="text/javascript" src="./transit/controllers/stopController.js"></script>
-
+    <script type="text/javascript" src="service-worker-registration.js"></script>
   </body>
 </html>
