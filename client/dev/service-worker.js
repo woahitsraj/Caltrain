@@ -24,7 +24,7 @@
 /* eslint-disable indent, no-unused-vars, no-multiple-empty-lines, max-nested-callbacks, space-before-function-paren, quotes, comma-spacing */
 'use strict';
 
-var precacheConfig = [["/css/bootstrap.css","d2ab08de4855f3f73d2ecec6da794293"],["/index.html","e41be342738c57c0549e511ec8c17172"],["/js/angular-route.js","7177f919ab94155d73f4e7b3f5161622"],["/js/angular.js","006b5752677a472930409de596b643b4"],["/js/app.js","cee9e002f699ebec3f86c6504831d3b6"],["/js/bootstrap.js","3f0c5a5f186e8aaa48ab29b12a012ae3"],["/js/jquery.js","cf26f8f0ccb06be71e92d8db0fb64ab5"],["/js/mainController.js","d32ac75243199bcd386f732ae29e9bfa"],["/js/stopService.js","e82013bf149fc175c913360277196e8c"],["/main.html","af7c09e45e02836c4ef1595385785018"],["/service-worker-registration.js","c1ee5aec388e1ed07d6d290693b72547"]];
+var precacheConfig = [["/css/bootstrap.css","d2ab08de4855f3f73d2ecec6da794293"],["/index.html","cd9271851a7cd8cbfaea4bb795700062"],["/js/angular-route.js","7177f919ab94155d73f4e7b3f5161622"],["/js/angular.js","006b5752677a472930409de596b643b4"],["/js/app.js","cee9e002f699ebec3f86c6504831d3b6"],["/js/bootstrap.js","3f0c5a5f186e8aaa48ab29b12a012ae3"],["/js/jquery.js","cf26f8f0ccb06be71e92d8db0fb64ab5"],["/js/mainController.js","d32ac75243199bcd386f732ae29e9bfa"],["/js/stopService.js","e82013bf149fc175c913360277196e8c"],["/main.html","af7c09e45e02836c4ef1595385785018"],["/service-worker-registration.js","c1ee5aec388e1ed07d6d290693b72547"]];
 var cacheName = 'sw-precache-v2--' + (self.registration ? self.registration.scope : '');
 
 
