@@ -6,7 +6,7 @@
       function($http) {
         var factory = {};
         factory.getAll = function() {
-          return $http.get('/api/stop');
+          return $http.get('./json/caltrain.json');
         };
 
         return factory;
