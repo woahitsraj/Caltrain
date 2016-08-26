@@ -23,14 +23,20 @@
                 <table class="table table-striped">
                     <thead>
                         <tr>
+                            <th>Service Type</th>
+                            <th>Route Name</th>
                             <th>Departure Time</th>
                             <th>Arrival Time</th>
+                            <th>Trip Time</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr ng-repeat="trip in trips">
+                            <td>{{trip.serviceType}}</td>
+                            <td>{{trip.routeName}}</td>
                             <td>{{trip.departureTime}}</td>
                             <td>{{trip.arrivalTime}}</td>
+                            <td>{{trip.tripTime}}</td>
                         </tr>
                     </tbody>
                 </table>

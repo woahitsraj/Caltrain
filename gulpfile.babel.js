@@ -11,24 +11,24 @@ var shell = require('gulp-shell');
 
 // Generate Service Worker
 gulp.task('generate-service-worker', function(callback) {
-	swPrecache.write(path.join(rootDir, 'service-worker.js'), {
-		staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,json}'],
-		stripPrefix: rootDir,
-		runtimeCaching: [{
-			urlPattern: /^((?:.*))\/json\/caltrain.json(?:\/(?=$))?$/i,
-			handler: 'networkFirst',
-			options: {
-				cache: {
-					name: 'stop-cache'
-				}
-			}
-		}]
-	}, callback);
+  swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,json}'],
+    stripPrefix: rootDir,
+    runtimeCaching: [{
+      urlPattern: /^((?:.*))\/json\/caltrain.json(?:\/(?=$))?$/i,
+      handler: 'networkFirst',
+      options: {
+        cache: {
+          name: 'stop-cache'
+        }
+      }
+    }]
+  }, callback);
 });
 
 gulp.task('copy-config', function() {
-   gulp.src('./config.js')
-   .pipe(gulp.dest('./node_modules/gtfs'));
+  gulp.src('./config.js')
+    .pipe(gulp.dest('./node_modules/gtfs'));
 });
 
 gulp.task('load-data', shell.task([
@@ -77,20 +77,21 @@ gulp.task('minify-html', function() {
 // Static server
 gulp.task('browser-sync', function() {
   browserSync.init({
+    port : 3010,
     server: {
-      baseDir: './dist'
+      baseDir: './dist',
     }
   });
 });
 
 // Reload task
-gulp.task('reload', function () {
+gulp.task('reload', function() {
   browserSync.reload();
 });
 
 
 // Default
-gulp.task('default', ['minify-css', 'minify-js', 'minify-json','minify-sw-js', 'minify-html', 'browser-sync', 'reload'], function() {
+gulp.task('default', ['minify-css', 'minify-js', 'minify-json', 'minify-sw-js', 'minify-html', 'browser-sync', 'reload'], function() {
 
   gulp.watch([rootDir + '/*.html'], ['minify-html', 'reload']);
   gulp.watch([rootDir + '/js/*.js'], ['minify-js', 'reload']);
