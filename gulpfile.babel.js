@@ -11,32 +11,24 @@ var shell = require('gulp-shell');
 
 // Generate Service Worker
 gulp.task('generate-service-worker', function(callback) {
-	swPrecache.write(path.join(rootDir, 'service-worker.js'), {
-		staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff}'],
-		stripPrefix: rootDir,
-		runtimeCaching: [{
-			urlPattern: /^((?:.*))\/api\/stop(?:\/(?=$))?$/i,
-			handler: 'networkFirst',
-			options: {
-				cache: {
-					name: 'stop-cache'
-				}
-			}
-		}, {
-			urlPattern: /^((?:.*))\/api\/stoptime\/((?:[^\/]+?))(?:\/(?=$))?$/i,
-			handler: 'networkFirst',
-			options: {
-				cache: {
-					name: 'stoptime-cache'
-				}
-			}
-		}]
-	}, callback);
+  swPrecache.write(path.join(rootDir, 'service-worker.js'), {
+    staticFileGlobs: [rootDir + '/**/*.{js,html,css,png,jpg,gif,svg,eot,ttf,woff,json}'],
+    stripPrefix: rootDir,
+    runtimeCaching: [{
+      urlPattern: /^((?:.*))\/json\/caltrain.json(?:\/(?=$))?$/i,
+      handler: 'networkFirst',
+      options: {
+        cache: {
+          name: 'stop-cache'
+        }
+      }
+    }]
+  }, callback);
 });
 
 gulp.task('copy-config', function() {
-   gulp.src('./config.js')
-   .pipe(gulp.dest('./node_modules/gtfs'));
+  gulp.src('./config.js')
+    .pipe(gulp.dest('./node_modules/gtfs'));
 });
 
 gulp.task('load-data', shell.task([
@@ -57,10 +49,15 @@ gulp.task('minify-css', function() {
 // Minify JavaScript
 gulp.task('minify-js', function() {
   gulp.src(rootDir + '/js/*.js')
-    .pipe(gulp.dest('./dist/js'))
-    .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 });
+
+// Minify JSON
+gulp.task('minify-json', function() {
+  gulp.src(rootDir + '/json/*.json')
+    .pipe(gulp.dest('./dist/json'));
+});
+
 
 // Minify Service Worker
 gulp.task('minify-sw-js', function() {
@@ -80,19 +77,21 @@ gulp.task('minify-html', function() {
 // Static server
 gulp.task('browser-sync', function() {
   browserSync.init({
-    proxy: 'http://localhost:3333', 
-    reloadDelay: 1000,
+    port : 3010,
+    server: {
+      baseDir: './dist',
+    }
   });
 });
 
 // Reload task
-gulp.task('reload', function () {
+gulp.task('reload', function() {
   browserSync.reload();
 });
 
 
 // Default
-gulp.task('default', ['minify-css', 'minify-js','minify-sw-js', 'minify-html', 'browser-sync', 'reload'], function() {
+gulp.task('default', ['minify-css', 'minify-js', 'minify-json', 'minify-sw-js', 'minify-html', 'browser-sync', 'reload'], function() {
 
   gulp.watch([rootDir + '/*.html'], ['minify-html', 'reload']);
   gulp.watch([rootDir + '/js/*.js'], ['minify-js', 'reload']);

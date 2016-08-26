@@ -6,23 +6,9 @@ Public transportation, Second Project for the Udacity Senior Web Developer Nanod
 ```{r, engine='bash', count_lines}
 $ npm install
 ```
-
-## Loading Data
-
-### Make sure mongo is running
-
-```{r, engine='bash', count_lines}
-$ mongod
-```
-
-### Run the download script
-```{r, engine='bash', count_lines}
-$ gulp init-gtfs
-```
-
 ##Running
 ```{r, engine='bash', count_lines}
-$ npm run dev
+$ npm run dist
 ```
 Client files will be served from ./dist
 

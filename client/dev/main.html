@@ -17,55 +17,26 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-md-6">
-            <div ng-show="startingStationSelected">
-                <h2>Departure Times for {{startingStation.stop_name}}</h2>
+        <div class="col-md-6 col-md-offset-3">
+            <div ng-show="endingStationSelected && startingStationSelected">
+                <h2>Trips between {{startingStation.stop_name}} and {{endingStation.stop_name}}</h2>
                 <table class="table table-striped">
                     <thead>
                         <tr>
-                            <th>NorthBound</th>
+                            <th>Service Type</th>
+                            <th>Route Name</th>
+                            <th>Departure Time</th>
+                            <th>Arrival Time</th>
+                            <th>Trip Time</th>
                         </tr>
                     </thead>
                     <tbody>
-                        <tr ng-repeat="times in stopTimesForStartingStationNB">
-                            <td>{{times}}</td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th>Southbound</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="times in stopTimesForStartingStationSB">
-                            <td>{{times}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <div ng-show="endingStationSelected">
-                <h2>Arrival Times for {{endingStation.stop_name}}</h2>
-                <table class="table table-striped">
-                    <thead>
-                        <tr>
-                            <th>NorthBound</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="times in stopTimesForEndingStationNB">
-                            <td>{{times}}</td>
-                        </tr>
-                    </tbody>
-                    <thead>
-                        <tr>
-                            <th>Southbound</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr ng-repeat="times in stopTimesForEndingStationSB">
-                            <td>{{times}}</td>
+                        <tr ng-repeat="trip in trips">
+                            <td>{{trip.serviceType}}</td>
+                            <td>{{trip.routeName}}</td>
+                            <td>{{trip.departureTime}}</td>
+                            <td>{{trip.arrivalTime}}</td>
+                            <td>{{trip.tripTime}}</td>
                         </tr>
                     </tbody>
                 </table>
