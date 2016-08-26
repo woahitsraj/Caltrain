@@ -31,7 +31,7 @@
           stop_id: ''
 
         };
-
+        //Taken from https://github.com/yhagio/offline-caltrain/blob/master/src/js/application.js
         function hhmmssToSeconds(time) {
           var t = time.split(':');
           var hour = parseInt(t[0]);
@@ -41,7 +41,7 @@
           return hour * 60 * 60 + minute * 60 + second;
         }
 
-
+        //Taken from https://github.com/yhagio/offline-caltrain/blob/master/src/js/application.js
         function getDuration(departure_time, arrival_time) {
           var dSec = hhmmssToSeconds(departure_time);
           var aSec = hhmmssToSeconds(arrival_time);
