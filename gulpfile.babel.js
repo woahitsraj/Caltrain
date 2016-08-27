@@ -86,6 +86,16 @@ gulp.task('browser-sync', function() {
   });
 });
 
+gulp.task('browser-sync-dev', function() {
+  browserSync.init({
+    port : 3010,
+    server: {
+      baseDir: rootDir,
+    }
+  });
+});
+
+
 // Reload task
 gulp.task('reload', function() {
   browserSync.reload();
@@ -99,5 +109,14 @@ gulp.task('default', ['minify-css', 'minify-js', 'minify-json', 'minify-sw-js', 
   gulp.watch([rootDir + '/js/*.js'], ['minify-js', 'reload']);
   gulp.watch([rootDir + '/*.js'], ['minify-sw-js', 'reload']);
   gulp.watch([rootDir + '/css/*.css'], ['minify-css', 'reload']);
+
+});
+
+gulp.task('dev', ['browser-sync-dev', 'reload'], function() {
+
+  gulp.watch([rootDir + '/*.html'], ['reload']);
+  gulp.watch([rootDir + '/js/*.js'], ['reload']);
+  gulp.watch([rootDir + '/*.js'], ['reload']);
+  gulp.watch([rootDir + '/css/*.css'], ['reload']);
 
 });
