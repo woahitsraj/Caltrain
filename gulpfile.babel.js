@@ -49,6 +49,8 @@ gulp.task('minify-css', function() {
 // Minify JavaScript
 gulp.task('minify-js', function() {
   gulp.src(rootDir + '/js/*.js')
+    .pipe(gulp.dest('./dist/js'))
+    .pipe(uglify())
     .pipe(gulp.dest('./dist/js'));
 });
 
