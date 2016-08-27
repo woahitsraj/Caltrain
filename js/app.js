@@ -1,0 +1,1 @@
+!function(o){"use strict";o.module("public-transport",["ngRoute"]),o.module("public-transport").config(["$routeProvider",function(o){o.when("/",{templateUrl:"main.html",controller:"mainController"}).otherwise({redirectTo:"/"})}])}(window.angular);

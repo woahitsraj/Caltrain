@@ -1,0 +1,1 @@
+!function(t){"use strict";t.module("public-transport").factory("stopService",["$http",function(t){var n={};return n.getAll=function(){return t.get("./json/caltrain.json")},n}])}(window.angular);
